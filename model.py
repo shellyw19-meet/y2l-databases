@@ -5,7 +5,14 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
-# Write your classes here :
-class Product(Base):
-    # TODO: complete this class
-    pass
+class Products(Base):
+	__tablename__ = "products"
+	id = Column(Integer, primary_key = True)
+	name = Column(String)
+	price = Column(Integer)
+	quality = Column(Integer)
+	description = Column(String)
+	used = Column(Boolean)
+
+	def __repr__(self):
+		return "\nname: " + self.name + "\nprice: " + self.price + "\nquality: " + self.quality + "\ndescription: " + self.description + "\nused: " + self.used
